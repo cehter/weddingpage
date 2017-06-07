@@ -1,0 +1,22 @@
+{
+  "name": "weddingpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass --output-style -o css/ css/",
+    "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers 'last 1 versions' -r css/*.css",
+    "serve": "browser-sync start --server --files 'css/*.css'",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "watch:css": "onchange 'css/*.scss' -- npm run build:css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "browser-sync": "^2.18.12",
+    "node-sass": "^4.5.3",
+    "onchange": "^3.2.1",
+    "postcss-cli": "^4.0.0"
+  }
+}

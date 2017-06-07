@@ -1,0 +1,68 @@
+.section {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  font-size: 3rem;
+  padding: 3rem;
+  justify-content: space-between;
+}
+
+.section--polaroid {
+  flex-flow: row;
+}
+
+@media screen and (max-width: 1000px) {
+    .section--polaroid {
+        flex-flow: column;
+    }
+}
+
+.section__header {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  h2{
+    font-size: 3rem;
+    color: white;
+    margin: 0 0 1rem;
+  }
+
+  svg{
+    stroke: white;
+  }
+}
+
+.sectionZigZag{
+  background-color: #0c1113;
+
+  &.sectionZigZag--top{
+    &:before{
+       content:"";
+      display:block;
+      position: relative;
+      top: -21px;
+      height:21px;
+      background: linear-gradient( 45deg, #0c1113 15px, transparent 0) 0 15px,
+                  linear-gradient(-45deg, #0c1113 15px, transparent 0) 0 15px;
+      background-position: top left;
+      background-repeat: repeat-x;
+      background-size: 30px 30px;
+    }
+  }
+
+  &.sectionZigZag--bottom{
+    &:after{
+     content:"";
+     display:block;
+     position: relative;
+     bottom: -21px;
+     height:21px;
+     background: linear-gradient(-135deg, #0c1113 15px, transparent 0) 0 15px,
+                 linear-gradient( 135deg, #0c1113 15px, transparent 0) 0 15px;
+     background-position: top left;
+     background-repeat: repeat-x;
+     background-size: 30px 30px;
+    }
+  }
+}

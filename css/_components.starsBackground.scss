@@ -1,0 +1,58 @@
+/**
+* Animated star background
+* https://codepen.io/saransh/pen/BKJun
+**/
+
+// n is number of stars required
+@function multiple-box-shadow($n) {
+  $value: "#{random(2000)}px #{random(2000)}px #FFF";
+
+  @for $i from 2 through $n {
+    $value: "#{$value} , #{random(2000)}px #{random(2000)}px #FFF";
+  }
+
+  @return unquote($value);
+}
+
+@keyframes animateStars {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+@mixin stars($shadowSize, $width,  $animation:false) {
+  width: $width;
+  height: $width;
+  background: transparent;
+  box-shadow: multiple-box-shadow($shadowSize);
+  transform: translateZ(0);
+
+  @if $animation {
+    animation: animateStars 50s linear infinite;
+  }
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: $width;
+    height: $width;
+    background: transparent;
+    box-shadow: multiple-box-shadow($shadowSize);
+  }
+}
+
+.stars1 {
+  @include stars(700, 1px, true);
+}
+
+.stars2 {
+  @include stars(200, 2px);
+}
+
+.stars3 {
+  @include stars(100, 3px);
+}
