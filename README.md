@@ -1,2 +1,2 @@
-# weddingpage
-Single page website for weddings. 
+# Weddingpage
+A single page website for weddings.
